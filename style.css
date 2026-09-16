@@ -268,3 +268,75 @@ main {
     transition-duration: 0.01ms !important;
   }
 }
+/* =========================
+   MESSAGE
+========================= */
+
+.message-section {
+  position: relative;
+  padding: clamp(120px, 14vw, 210px) 32px;
+  background: var(--color-bg);
+}
+
+.message-inner {
+  width: min(680px, 100%);
+  margin: 0 auto;
+}
+
+.message-lead {
+  margin: 0 0 clamp(72px, 8vw, 110px);
+  color: var(--color-text);
+  font-size: clamp(25px, 2.2vw, 32px);
+  font-weight: 500;
+  line-height: 2.05;
+  letter-spacing: 0.08em;
+}
+
+.message-body {
+  color: var(--color-text);
+  font-size: clamp(16px, 1.3vw, 18px);
+  font-weight: 400;
+  line-height: 2.25;
+  letter-spacing: 0.055em;
+}
+
+.message-body p {
+  margin: 0 0 52px;
+}
+
+.message-body p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   MESSAGE - MOBILE
+========================= */
+
+@media (max-width: 767px) {
+
+  .message-section {
+    padding: 110px 24px 120px;
+  }
+
+  .message-inner {
+    width: 100%;
+  }
+
+  .message-lead {
+    margin-bottom: 64px;
+    font-size: 23px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+  }
+
+  .message-body {
+    font-size: 16px;
+    line-height: 2.2;
+    letter-spacing: 0.04em;
+  }
+
+  .message-body p {
+    margin-bottom: 44px;
+  }
+}
