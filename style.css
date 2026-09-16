@@ -1,0 +1,142 @@
+:root {
+  --color-bg: #fffaf8;
+  --color-text: #493c3d;
+  --color-sub: #806d70;
+  --color-rose: #a96f7d;
+
+  --font-jp: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro", "Noto Serif JP", serif;
+}
+
+/* =========================
+   BASE
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-jp);
+  font-size: 17px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  overflow: hidden;
+}
+
+/* =========================
+   FIRST VIEW
+========================= */
+
+#first-view {
+  min-height: 100svh;
+  width: min(1180px, calc(100% - 96px));
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 100px 0;
+}
+
+#first-view > p:first-child {
+  margin: 0 0 42px;
+  color: var(--color-rose);
+  font-size: 14px;
+  letter-spacing: 0.14em;
+}
+
+#first-view h1 {
+  margin: 0;
+  font-size: clamp(40px, 4.2vw, 58px);
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0.08em;
+}
+
+#first-view h1 + p {
+  margin: 42px 0 0;
+  font-size: 20px;
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+
+#first-view > p:last-child {
+  margin: 58px 0 0;
+  color: var(--color-sub);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 767px) {
+  body {
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 0.045em;
+  }
+
+  #first-view {
+    min-height: 100svh;
+    width: calc(100% - 48px);
+    padding: 72px 0 64px;
+  }
+
+  #first-view > p:first-child {
+    margin-bottom: 34px;
+    font-size: 12px;
+  }
+
+  #first-view h1 {
+    font-size: clamp(30px, 9vw, 38px);
+    line-height: 1.65;
+    letter-spacing: 0.055em;
+  }
+
+  #first-view h1 + p {
+    margin-top: 34px;
+    font-size: 17px;
+    line-height: 1.95;
+  }
+
+  #first-view > p:last-child {
+    margin-top: 46px;
+    font-size: 12px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
