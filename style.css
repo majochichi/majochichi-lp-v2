@@ -8,6 +8,7 @@
     "Hiragino Mincho Pro", "Noto Serif JP", serif;
 }
 
+
 /* =========================
    BASE
 ========================= */
@@ -37,27 +38,39 @@ main {
   overflow: hidden;
 }
 
+
 /* =========================
    FIRST VIEW
 ========================= */
 
 #first-view {
+  position: relative;
   min-height: 100svh;
-  width: min(1180px, calc(100% - 96px));
-  margin: 0 auto;
-
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  padding: 100px 0;
+  align-items: center;
+  padding: 72px 48px 86px;
 }
 
-#first-view > p:first-child {
+.first-view-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 100px);
+}
+
+.first-view-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.first-view-role {
   margin: 0 0 42px;
   color: var(--color-rose);
   font-size: 14px;
+  line-height: 1.8;
   letter-spacing: 0.14em;
 }
 
@@ -69,25 +82,83 @@ main {
   letter-spacing: 0.08em;
 }
 
-#first-view h1 + p {
+.first-view-message {
   margin: 42px 0 0;
   font-size: 20px;
   line-height: 2;
   letter-spacing: 0.08em;
 }
 
-#first-view > p:last-child {
+.first-view-signature {
   margin: 58px 0 0;
   color: var(--color-sub);
   font-size: 13px;
+  line-height: 1.8;
   letter-spacing: 0.2em;
 }
+
+.first-view-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.first-view-visual img {
+  display: block;
+  width: 100%;
+  max-width: 610px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.first-view-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  margin: 0;
+  transform: translateX(-50%);
+
+  color: var(--color-sub);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 980px) {
+
+  #first-view {
+    padding: 72px 36px 84px;
+  }
+
+  .first-view-inner {
+    grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+    gap: 36px;
+  }
+
+  #first-view h1 {
+    font-size: clamp(36px, 4.8vw, 48px);
+  }
+
+  .first-view-message {
+    font-size: 18px;
+  }
+}
+
 
 /* =========================
    MOBILE
 ========================= */
 
 @media (max-width: 767px) {
+
   body {
     font-size: 16px;
     line-height: 1.95;
@@ -96,13 +167,25 @@ main {
 
   #first-view {
     min-height: 100svh;
-    width: calc(100% - 48px);
-    padding: 72px 0 64px;
+    display: block;
+    padding: 64px 24px 82px;
   }
 
-  #first-view > p:first-child {
-    margin-bottom: 34px;
+  .first-view-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 36px;
+  }
+
+  .first-view-copy {
+    width: 100%;
+  }
+
+  .first-view-role {
+    margin-bottom: 30px;
     font-size: 12px;
+    letter-spacing: 0.12em;
   }
 
   #first-view h1 {
@@ -111,23 +194,66 @@ main {
     letter-spacing: 0.055em;
   }
 
-  #first-view h1 + p {
-    margin-top: 34px;
+  .first-view-message {
+    margin-top: 30px;
     font-size: 17px;
     line-height: 1.95;
+    letter-spacing: 0.055em;
   }
 
-  #first-view > p:last-child {
-    margin-top: 46px;
+  .first-view-visual {
+    width: min(92%, 480px);
+    margin: 2px auto 0;
+  }
+
+  .first-view-visual img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .first-view-signature {
+    margin-top: 34px;
     font-size: 12px;
   }
+
+  .first-view-scroll {
+    bottom: 18px;
+    font-size: 10px;
+  }
 }
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 390px) {
+
+  #first-view {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #first-view h1 {
+    font-size: 29px;
+  }
+
+  .first-view-message {
+    font-size: 16px;
+  }
+
+  .first-view-inner {
+    gap: 28px;
+  }
+}
+
 
 /* =========================
    REDUCED MOTION
 ========================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
