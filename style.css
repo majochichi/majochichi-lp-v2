@@ -340,3 +340,97 @@ main {
     margin-bottom: 44px;
   }
 }
+
+/* =========================
+   SOUL TRANSLATOR
+========================= */
+
+.soul-translator-section {
+  padding: clamp(140px, 14vw, 220px) 24px;
+  background: #fffaf8;
+}
+
+.soul-translator-inner {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.soul-translator-label {
+  margin: 0 0 28px;
+  color: var(--color-rose);
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.22em;
+}
+
+.soul-translator-title {
+  margin: 0 0 clamp(72px, 8vw, 110px);
+  color: var(--color-text);
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+
+.soul-translator-body {
+  color: var(--color-text);
+  font-size: clamp(16px, 1.3vw, 18px);
+  font-weight: 400;
+  line-height: 2.25;
+  letter-spacing: 0.055em;
+}
+
+.soul-translator-body p {
+  margin: 0 0 52px;
+}
+
+.soul-translator-ending {
+  margin-top: 84px !important;
+  margin-bottom: 0 !important;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 2.15;
+  letter-spacing: 0.07em;
+}
+
+
+/* =========================
+   SOUL TRANSLATOR - MOBILE
+========================= */
+
+@media (max-width: 767px) {
+
+  .soul-translator-section {
+    padding: 120px 24px 130px;
+  }
+
+  .soul-translator-inner {
+    width: 100%;
+  }
+
+  .soul-translator-label {
+    margin-bottom: 24px;
+    font-size: 11px;
+  }
+
+  .soul-translator-title {
+    margin-bottom: 68px;
+    font-size: 27px;
+    line-height: 1.8;
+  }
+
+  .soul-translator-body {
+    font-size: 16px;
+    line-height: 2.2;
+    letter-spacing: 0.04em;
+  }
+
+  .soul-translator-body p {
+    margin-bottom: 46px;
+  }
+
+  .soul-translator-ending {
+    margin-top: 72px !important;
+    font-size: 18px;
+    line-height: 2.1;
+  }
+}
