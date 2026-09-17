@@ -284,7 +284,7 @@ main {
 }
 
 .message-lead {
-  margin: 0 0 clamp(72px, 8vw, 110px);
+  margin: 0 0 clamp(48px, 5vw, 64px);
   color: var(--color-text);
   font-size: clamp(24px, 2vw, 29px);
   font-weight: 500;
