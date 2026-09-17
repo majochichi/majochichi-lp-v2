@@ -274,7 +274,7 @@ main {
 
 .message-section {
   position: relative;
-  padding: clamp(120px, 14vw, 210px) 32px;
+  padding: clamp(90px, 8vw, 120px) 32px;
   background: var(--color-bg);
 }
 
