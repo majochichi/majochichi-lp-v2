@@ -1,8 +1,11 @@
 :root {
   --color-bg: #fffaf8;
+  --color-bg-soft: #fdf5f3;
+  --color-bg-deep: #f7eceb;
   --color-text: #493c3d;
   --color-sub: #806d70;
   --color-rose: #a96f7d;
+  --color-line: rgba(169, 111, 125, 0.22);
 
   --font-jp: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN",
     "Hiragino Mincho Pro", "Noto Serif JP", serif;
@@ -38,6 +41,36 @@ main {
   overflow: hidden;
 }
 
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+.section-label {
+  margin: 0 0 28px;
+  color: var(--color-rose);
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.22em;
+}
+
+.section-title {
+  margin: 0 0 clamp(64px, 7vw, 96px);
+  color: var(--color-text);
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.09em;
+}
+
 
 /* =========================
    FIRST VIEW
@@ -65,9 +98,11 @@ main {
   position: relative;
   z-index: 2;
 }
+
 .keep-line {
   white-space: nowrap;
 }
+
 .first-view-role {
   margin: 0 0 42px;
   color: var(--color-rose);
@@ -131,6 +166,551 @@ main {
 
 
 /* =========================
+   MESSAGE
+========================= */
+
+.message-section {
+  position: relative;
+  padding: clamp(120px, 14vw, 210px) 32px;
+  background: var(--color-bg);
+}
+
+.message-inner {
+  width: min(680px, 100%);
+  margin: 0 auto;
+}
+
+.message-lead {
+  margin: 0 0 clamp(72px, 8vw, 110px);
+  color: var(--color-text);
+  font-size: clamp(24px, 2vw, 29px);
+  font-weight: 500;
+  line-height: 2.05;
+  letter-spacing: 0.08em;
+}
+
+.message-body {
+  color: var(--color-text);
+  font-size: clamp(16px, 1.3vw, 18px);
+  font-weight: 400;
+  line-height: 2.25;
+  letter-spacing: 0.055em;
+}
+
+.message-body p {
+  margin: 0 0 52px;
+}
+
+.message-body p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   SOUL TRANSLATOR
+========================= */
+
+.soul-translator-section {
+  padding: clamp(140px, 14vw, 220px) 24px;
+  background: var(--color-bg);
+}
+
+.soul-translator-inner {
+  width: min(100%, 760px);
+  margin: 0 auto 0 28%;
+}
+
+.soul-translator-label {
+  margin: 0 0 28px;
+  color: var(--color-rose);
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.22em;
+}
+
+.soul-translator-title {
+  margin: 0 0 clamp(72px, 8vw, 110px);
+  color: var(--color-text);
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+
+.soul-translator-body {
+  color: var(--color-text);
+  font-size: clamp(16px, 1.3vw, 18px);
+  font-weight: 400;
+  line-height: 2.25;
+  letter-spacing: 0.055em;
+}
+
+.soul-translator-body p {
+  margin: 0 0 52px;
+}
+
+.soul-translator-ending {
+  margin-top: 84px !important;
+  margin-bottom: 0 !important;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 2.15;
+  letter-spacing: 0.07em;
+}
+
+
+/* =========================
+   SESSION
+========================= */
+
+.session-section {
+  padding: clamp(130px, 13vw, 200px) 32px;
+  background: var(--color-bg-soft);
+}
+
+.session-inner {
+  width: min(720px, 100%);
+  margin: 0 auto;
+}
+
+.session-body {
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 2.25;
+  letter-spacing: 0.055em;
+}
+
+.session-body p {
+  margin: 0 0 48px;
+}
+
+.session-body p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   KAERU CARD
+========================= */
+
+.kaeru-card-section {
+  padding: clamp(140px, 14vw, 220px) 32px;
+  background: var(--color-bg);
+}
+
+.kaeru-card-inner {
+  width: min(720px, 100%);
+  margin: 0 auto;
+}
+
+.kaeru-card-body {
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 2.25;
+  letter-spacing: 0.055em;
+}
+
+.kaeru-card-body p {
+  margin: 0 0 48px;
+}
+
+.kaeru-question {
+  margin: 70px 0 !important;
+  padding-left: 28px;
+  border-left: 1px solid var(--color-rose);
+  color: var(--color-rose);
+  font-size: clamp(19px, 1.6vw, 23px);
+  line-height: 2;
+}
+
+.kaeru-ending {
+  margin-top: 76px !important;
+  margin-bottom: 0 !important;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 2.15;
+}
+
+
+/* =========================
+   SESSION PRICE
+========================= */
+
+.session-price-section {
+  padding: clamp(120px, 12vw, 180px) 32px;
+  background: var(--color-bg-deep);
+}
+
+.session-price-inner {
+  width: min(960px, 100%);
+  margin: 0 auto;
+}
+
+.session-price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.price-card {
+  padding: 54px 44px;
+  background: rgba(255, 250, 248, 0.72);
+  border: 1px solid var(--color-line);
+}
+
+.price-card h3 {
+  margin: 0 0 22px;
+  color: var(--color-rose);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+.price {
+  margin: 0 0 36px;
+  font-size: clamp(25px, 2.2vw, 32px);
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+}
+
+.price span {
+  font-size: 13px;
+  color: var(--color-sub);
+}
+
+.price-card > p:last-child {
+  margin-bottom: 0;
+  font-size: 15px;
+  line-height: 2.1;
+}
+
+.session-info {
+  margin-top: 58px;
+  text-align: center;
+}
+
+.session-info p {
+  margin: 8px 0;
+}
+
+.session-note {
+  margin-top: 18px !important;
+  color: var(--color-sub);
+  font-size: 13px;
+}
+
+
+/* =========================
+   ABOUT CHICHI
+========================= */
+
+.about-chichi-section {
+  padding: clamp(120px, 12vw, 190px) 48px;
+  background: var(--color-bg);
+}
+
+.about-chichi-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(64px, 8vw, 120px);
+  align-items: center;
+}
+
+.about-chichi-visual img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.about-chichi-copy {
+  max-width: 620px;
+}
+
+.about-chichi-body {
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+}
+
+.about-chichi-body p {
+  margin: 0 0 38px;
+}
+
+.about-chichi-ending {
+  margin-top: 62px !important;
+  margin-bottom: 0 !important;
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 2.1;
+}
+
+
+/* =========================
+   BRAND WORLD
+========================= */
+
+.brand-world-section {
+  background: #20181f;
+  color: #f8eeee;
+}
+
+.brand-world-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 54%) minmax(0, 46%);
+  align-items: start;
+}
+
+.brand-world-visual {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.brand-world-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.brand-world-copy {
+  min-height: 100svh;
+  padding: clamp(110px, 10vw, 160px) clamp(48px, 6vw, 96px);
+}
+
+.brand-world-copy .section-label {
+  color: #d9aeb8;
+}
+
+.brand-world-title {
+  margin: 0 0 22px;
+  color: #fff5f5;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 3.6vw, 54px);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+.brand-world-lead {
+  margin: 0 0 78px;
+  color: #e8cbd1;
+  font-size: 19px;
+}
+
+.brand-world-body {
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+}
+
+.brand-world-body p {
+  margin: 0 0 42px;
+}
+
+.brand-world-ending {
+  margin-top: 74px !important;
+  color: #f4dce1;
+  font-size: 18px;
+  letter-spacing: 0.09em;
+}
+
+.brand-world-links {
+  display: grid;
+  gap: 16px;
+  margin-top: 88px;
+}
+
+.brand-world-links a {
+  display: block;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff5f5;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: opacity 0.25s ease;
+}
+
+.brand-world-links a:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.brand-world-links a:hover {
+  opacity: 0.72;
+}
+
+.brand-world-links span {
+  display: block;
+}
+
+.brand-world-links small {
+  display: block;
+  margin-top: 5px;
+  color: #d8c4c8;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final-message-section {
+  padding: clamp(140px, 14vw, 220px) 32px;
+  background: var(--color-bg);
+  text-align: center;
+}
+
+.final-message-inner {
+  width: min(680px, 100%);
+  margin: 0 auto;
+}
+
+.final-message-inner h2 {
+  margin: 0 0 82px;
+  font-size: clamp(27px, 2.6vw, 38px);
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.09em;
+}
+
+.final-message-body {
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 2.25;
+}
+
+.final-message-body p {
+  margin: 0 0 48px;
+}
+
+.final-message-key {
+  margin-top: 78px !important;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 2;
+}
+
+.final-message-role {
+  margin: 72px 0 !important;
+  color: var(--color-rose);
+  font-size: 15px;
+  letter-spacing: 0.12em;
+}
+
+.line-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 280px;
+  margin-top: 34px;
+  padding: 18px 36px;
+
+  border: 1px solid var(--color-rose);
+  color: var(--color-text);
+  background: transparent;
+
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.line-cta:hover {
+  background: var(--color-rose);
+  color: #fff;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+  padding: 86px 32px 46px;
+  background: #f4e9e8;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.site-footer-inner {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.site-footer-brand {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  letter-spacing: 0.14em;
+}
+
+.site-footer-role {
+  margin: 12px 0 46px;
+  color: var(--color-sub);
+  font-size: 13px;
+}
+
+.site-footer-links,
+.site-footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 28px;
+}
+
+.site-footer-links a,
+.site-footer-legal a {
+  color: var(--color-text);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.site-footer-legal {
+  margin-top: 28px;
+}
+
+.site-footer-legal a {
+  color: var(--color-sub);
+  font-size: 12px;
+}
+
+.site-footer-contact {
+  margin: 38px 0 0;
+  color: var(--color-sub);
+  font-size: 12px;
+  line-height: 2;
+}
+
+.site-footer-contact a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-footer-motto {
+  margin: 48px 0 0;
+  font-size: 13px;
+  line-height: 2;
+  letter-spacing: 0.1em;
+}
+
+.site-footer-copyright {
+  margin: 38px 0 0;
+  color: var(--color-sub);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================
    TABLET
 ========================= */
 
@@ -152,6 +732,25 @@ main {
   .first-view-message {
     font-size: 18px;
   }
+
+  .soul-translator-inner {
+    margin-left: 16%;
+  }
+
+  .about-chichi-section {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  .about-chichi-inner {
+    grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+    gap: 54px;
+  }
+
+  .brand-world-copy {
+    padding-left: 42px;
+    padding-right: 42px;
+  }
 }
 
 
@@ -166,6 +765,20 @@ main {
     line-height: 1.95;
     letter-spacing: 0.045em;
   }
+
+  .section-label {
+    margin-bottom: 22px;
+    font-size: 11px;
+  }
+
+  .section-title {
+    margin-bottom: 62px;
+    font-size: 27px;
+    line-height: 1.8;
+  }
+
+
+  /* FIRST VIEW */
 
   #first-view {
     min-height: 100svh;
@@ -222,98 +835,9 @@ main {
     bottom: 18px;
     font-size: 10px;
   }
-}
 
 
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 390px) {
-
-  #first-view {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  #first-view h1 {
-    font-size: 29px;
-  }
-
-  .first-view-message {
-    font-size: 16px;
-  }
-
-  .first-view-inner {
-    gap: 28px;
-  }
-}
-
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-/* =========================
-   MESSAGE
-========================= */
-
-.message-section {
-  position: relative;
-  padding: clamp(120px, 14vw, 210px) 32px;
-  background: var(--color-bg);
-}
-
-.message-inner {
-  width: min(680px, 100%);
-  margin: 0 auto;
-}
-
-.message-lead {
-  margin: 0 0 clamp(72px, 8vw, 110px);
-  color: var(--color-text);
-  font-size: clamp(24px, 2vw, 29px);
-  font-weight: 500;
-  line-height: 2.05;
-  letter-spacing: 0.08em;
-}
-
-.message-body {
-  color: var(--color-text);
-  font-size: clamp(16px, 1.3vw, 18px);
-  font-weight: 400;
-  line-height: 2.25;
-  letter-spacing: 0.055em;
-}
-
-.message-body p {
-  margin: 0 0 52px;
-}
-
-.message-body p:last-child {
-  margin-bottom: 0;
-}
-
-
-/* =========================
-   MESSAGE - MOBILE
-========================= */
-
-@media (max-width: 767px) {
+  /* MESSAGE */
 
   .message-section {
     padding: 110px 24px 120px;
@@ -339,65 +863,9 @@ main {
   .message-body p {
     margin-bottom: 44px;
   }
-}
-
-/* =========================
-   SOUL TRANSLATOR
-========================= */
-
-.soul-translator-section {
-  padding: clamp(140px, 14vw, 220px) 24px;
-  background: #fffaf8;
-}
-
-.soul-translator-inner {
-  width: min(100%, 760px);
-  margin: 0 auto 0 28%;
-}
-
-.soul-translator-label {
-  margin: 0 0 28px;
-  color: var(--color-rose);
-  font-size: 12px;
-  line-height: 1.8;
-  letter-spacing: 0.22em;
-}
-
-.soul-translator-title {
-  margin: 0 0 clamp(72px, 8vw, 110px);
-  color: var(--color-text);
-  font-size: clamp(28px, 2.6vw, 38px);
-  font-weight: 500;
-  line-height: 1.8;
-  letter-spacing: 0.1em;
-}
-
-.soul-translator-body {
-  color: var(--color-text);
-  font-size: clamp(16px, 1.3vw, 18px);
-  font-weight: 400;
-  line-height: 2.25;
-  letter-spacing: 0.055em;
-}
-
-.soul-translator-body p {
-  margin: 0 0 52px;
-}
-
-.soul-translator-ending {
-  margin-top: 84px !important;
-  margin-bottom: 0 !important;
-  font-size: clamp(18px, 1.5vw, 21px);
-  line-height: 2.15;
-  letter-spacing: 0.07em;
-}
 
 
-/* =========================
-   SOUL TRANSLATOR - MOBILE
-========================= */
-
-@media (max-width: 767px) {
+  /* SOUL TRANSLATOR */
 
   .soul-translator-section {
     padding: 120px 24px 130px;
@@ -405,6 +873,7 @@ main {
 
   .soul-translator-inner {
     width: 100%;
+    margin: 0;
   }
 
   .soul-translator-label {
@@ -433,6 +902,289 @@ main {
     font-size: 18px;
     line-height: 2.1;
   }
+
+
+  /* SESSION */
+
+  .session-section {
+    padding: 112px 24px 120px;
+  }
+
+  .session-body {
+    font-size: 16px;
+    line-height: 2.2;
+  }
+
+  .session-body p {
+    margin-bottom: 42px;
+  }
+
+
+  /* KAERU CARD */
+
+  .kaeru-card-section {
+    padding: 120px 24px 130px;
+  }
+
+  .kaeru-card-body {
+    font-size: 16px;
+    line-height: 2.2;
+  }
+
+  .kaeru-card-body p {
+    margin-bottom: 42px;
+  }
+
+  .kaeru-question {
+    margin: 62px 0 !important;
+    padding-left: 20px;
+    font-size: 19px;
+  }
+
+  .kaeru-ending {
+    margin-top: 66px !important;
+    font-size: 18px;
+  }
+
+
+  /* SESSION PRICE */
+
+  .session-price-section {
+    padding: 104px 24px 112px;
+  }
+
+  .session-price-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .price-card {
+    padding: 40px 28px;
+  }
+
+  .price-card h3 {
+    font-size: 18px;
+  }
+
+  .price {
+    margin-bottom: 30px;
+    font-size: 26px;
+  }
+
+  .price-card > p:last-child {
+    font-size: 15px;
+  }
+
+  .session-info {
+    margin-top: 46px;
+  }
+
+
+  /* ABOUT CHICHI */
+
+  .about-chichi-section {
+    padding: 112px 24px 126px;
+  }
+
+  .about-chichi-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 68px;
+  }
+
+  .about-chichi-visual {
+    width: min(100%, 440px);
+    margin: 0 auto;
+  }
+
+  .about-chichi-copy {
+    width: 100%;
+    max-width: none;
+  }
+
+  .about-chichi-body {
+    font-size: 16px;
+    line-height: 2.2;
+  }
+
+  .about-chichi-body p {
+    margin-bottom: 40px;
+  }
+
+  .about-chichi-ending {
+    margin-top: 64px !important;
+    font-size: 18px;
+  }
+
+
+  /* BRAND WORLD */
+
+  .brand-world-inner {
+    display: block;
+  }
+
+  .brand-world-visual {
+    position: relative;
+    top: auto;
+    height: auto;
+    max-height: 82svh;
+  }
+
+  .brand-world-visual img {
+    width: 100%;
+    height: auto;
+    max-height: 82svh;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .brand-world-copy {
+    min-height: auto;
+    padding: 100px 24px 112px;
+  }
+
+  .brand-world-title {
+    font-size: 36px;
+  }
+
+  .brand-world-lead {
+    margin-bottom: 64px;
+    font-size: 18px;
+  }
+
+  .brand-world-body {
+    font-size: 16px;
+    line-height: 2.2;
+  }
+
+  .brand-world-body p {
+    margin-bottom: 40px;
+  }
+
+  .brand-world-ending {
+    margin-top: 64px !important;
+    font-size: 17px;
+  }
+
+  .brand-world-links {
+    margin-top: 72px;
+  }
+
+
+  /* FINAL MESSAGE */
+
+  .final-message-section {
+    padding: 120px 24px 132px;
+  }
+
+  .final-message-inner h2 {
+    margin-bottom: 68px;
+    font-size: 27px;
+  }
+
+  .final-message-body {
+    font-size: 16px;
+    line-height: 2.2;
+  }
+
+  .final-message-body p {
+    margin-bottom: 42px;
+  }
+
+  .final-message-key {
+    margin-top: 68px !important;
+    font-size: 23px;
+  }
+
+  .final-message-role {
+    margin: 64px 0 !important;
+  }
+
+  .line-cta {
+    width: min(100%, 340px);
+    min-width: 0;
+    margin-top: 28px;
+  }
+
+
+  /* FOOTER */
+
+  .site-footer {
+    padding: 74px 24px 40px;
+  }
+
+  .site-footer-links,
+  .site-footer-legal {
+    gap: 12px 20px;
+  }
 }
 
 
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 390px) {
+
+  #first-view {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #first-view h1 {
+    font-size: 29px;
+  }
+
+  .first-view-message {
+    font-size: 16px;
+  }
+
+  .first-view-inner {
+    gap: 28px;
+  }
+
+  .message-section,
+  .soul-translator-section,
+  .session-section,
+  .kaeru-card-section,
+  .session-price-section,
+  .about-chichi-section,
+  .final-message-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .brand-world-copy {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .price-card {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .line-cta {
+    width: 100%;
+  }
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
