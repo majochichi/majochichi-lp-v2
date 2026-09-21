@@ -17,6 +17,8 @@
     "Hiragino Mincho Pro", "Noto Serif JP", serif;
 
   --edge-pc: clamp(48px, 6vw, 96px);
+  --petal-scale: 1;
+  --light-scale: 1;
 }
 
 
@@ -146,44 +148,131 @@ section {
 }
 
 
-/* decorative glow, used sparingly to mark the "light" beats
-   of the page (first view / final message) */
-.glow {
+/* Rose petals — ABOUT CHICHI screen 2 only.
+   Falls top-to-bottom with gentle horizontal drift and subtle rotation.
+   Size, drift, rotation and opacity are controlled by custom properties
+   defined on each individual petal element. */
+.petals {
   position: absolute;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.glow-warm::before {
-  content: "";
+.petal {
   position: absolute;
-  top: 8%;
-  right: -8%;
-  width: min(48vw, 620px);
-  height: min(48vw, 620px);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(201, 171, 126, 0.16) 0%,
-    rgba(201, 171, 126, 0) 70%
-  );
+  width: calc(var(--w, 16px) * var(--petal-scale, 1));
+  height: calc(var(--h, 20px) * var(--petal-scale, 1));
+  opacity: 0;
+  animation-name: petal-fall;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
 }
 
-.moon-accent {
+/* the shape lives on an inner element so the outer element is free
+   to rotate/translate for motion without disturbing the petal's
+   own asymmetric silhouette */
+.petal-shape {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 6% 94% 68% 32% / 62% 46% 84% 38%;
+  transform: skew(-7deg, 3deg);
+}
+
+.petal--a .petal-shape {
+  background: linear-gradient(150deg, #e9cdd2, #c98f9b);
+}
+
+.petal--b .petal-shape {
+  background: linear-gradient(150deg, #ddb1ba, #a96f7d);
+}
+
+.petal--c .petal-shape {
+  background: linear-gradient(150deg, #c98f9b, #a96f7d);
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--peak-opacity, 0.5);
+  }
+  30% {
+    transform: translate(var(--drift-1, 30px), 26vh) rotate(var(--rot-1, 25deg));
+  }
+  55% {
+    transform: translate(var(--drift-2, -22px), 52vh) rotate(var(--rot-2, -18deg));
+    opacity: var(--peak-opacity, 0.5);
+  }
+  80% {
+    transform: translate(var(--drift-3, 24px), 78vh) rotate(var(--rot-3, 45deg));
+    opacity: 0.18;
+  }
+  100% {
+    transform: translate(var(--drift-3, 24px), 100vh) rotate(var(--rot-3, 45deg));
+    opacity: 0;
+  }
+}
+
+/* light particles — MESSAGE / SOUL TRANSLATOR / FINAL MESSAGE only.
+   Rises bottom-to-top (the opposite of the petals' gravity), soft
+   blurred circles rather than sparkles, breathing in and out rather
+   than blinking. */
+.light {
   position: absolute;
-  top: clamp(56px, 7vh, 92px);
-  left: var(--edge-pc);
-  width: 46px;
-  height: 46px;
+  width: calc(var(--w, 5px) * var(--light-scale, 1));
+  height: calc(var(--h, 5px) * var(--light-scale, 1));
   border-radius: 50%;
-  box-shadow: 14px 4px 0 0 var(--color-bg) inset;
-  background: linear-gradient(
-    160deg,
-    rgba(169, 111, 125, 0.55),
-    rgba(169, 111, 125, 0.18)
-  );
-  opacity: 0.5;
+  opacity: 0;
+  filter: blur(0.4px);
+  animation-name: light-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.light--a {
+  background: radial-gradient(circle, rgba(255, 248, 238, 0.95), rgba(255, 248, 238, 0));
+  box-shadow: 0 0 6px 2px rgba(255, 248, 238, 0.35);
+}
+
+.light--b {
+  background: radial-gradient(circle, rgba(214, 185, 140, 0.9), rgba(214, 185, 140, 0));
+  box-shadow: 0 0 6px 2px rgba(214, 185, 140, 0.3);
+}
+
+.light--c {
+  background: radial-gradient(circle, rgba(231, 197, 203, 0.9), rgba(231, 197, 203, 0));
+  box-shadow: 0 0 6px 2px rgba(231, 197, 203, 0.3);
+}
+
+@keyframes light-float {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: var(--peak-opacity, 0.4);
+  }
+  50% {
+    transform: translate(var(--drift-1, 14px), -9vh) scale(1);
+    opacity: var(--peak-opacity, 0.4);
+  }
+  80% {
+    transform: translate(var(--drift-2, -12px), -16vh) scale(0.85);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translate(var(--drift-2, -12px), -20vh) scale(0.8);
+    opacity: 0;
+  }
 }
 
 
@@ -315,6 +404,8 @@ section {
 }
 
 .message-inner {
+  position: relative;
+  z-index: 1;
   width: min(1080px, 100%);
   margin: 0 auto;
 
@@ -350,6 +441,8 @@ section {
 }
 
 .soul-translator-section .section-split {
+  position: relative;
+  z-index: 1;
   padding-top: clamp(96px, 11vh, 150px);
   padding-bottom: clamp(96px, 11vh, 150px);
 }
@@ -531,6 +624,14 @@ section {
 ========================= */
 
 .about-chichi-section {
+  background: var(--color-bg);
+}
+
+.about-chichi-screen {
+  position: relative;
+}
+
+.about-chichi-screen-portrait {
   min-height: 100svh;
   display: flex;
   align-items: center;
@@ -543,7 +644,7 @@ section {
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: minmax(260px, 380px) minmax(0, 1fr);
+  grid-template-columns: minmax(260px, 400px) minmax(0, 1fr);
   grid-template-rows: auto 1fr;
   column-gap: clamp(48px, 6vw, 96px);
   row-gap: 0;
@@ -564,7 +665,7 @@ section {
   justify-self: center;
 
   position: relative;
-  width: clamp(300px, min(30vw, 44vh), 380px);
+  width: clamp(340px, min(32vw, 46vh), 400px);
   aspect-ratio: 1060 / 1484;
   margin: 0 auto;
 }
@@ -601,9 +702,6 @@ section {
 }
 
 .about-chichi-body {
-  grid-column: 2;
-  grid-row: 2;
-  max-width: 640px;
   font-size: clamp(15px, 1.1vw, 17px);
   line-height: 2.05;
   letter-spacing: 0.05em;
@@ -613,11 +711,45 @@ section {
   margin: 0 0 clamp(24px, 2.6vw, 32px);
 }
 
+.about-chichi-intro {
+  grid-column: 2;
+  grid-row: 2;
+  max-width: 640px;
+}
+
+.about-chichi-intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* screen 2 — 思想。text is the whole point here, so the portrait
+   is not repeated; a thin rose spine gives it quiet structure
+   instead of leaving the paragraphs isolated in empty space */
+.about-chichi-screen-philosophy {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(100px, 12vh, 160px) var(--edge-pc);
+  background: var(--color-bg-soft);
+}
+
+.about-chichi-philosophy-inner {
+  position: relative;
+  z-index: 1;
+  width: min(680px, 100%);
+  margin: 0 auto;
+  padding-left: clamp(24px, 3vw, 34px);
+  border-left: 1px solid var(--color-rose);
+}
+
+.about-chichi-philosophy p:last-child {
+  margin-bottom: clamp(28px, 3vw, 42px);
+}
+
 .about-chichi-ending {
-  margin-top: clamp(28px, 3vw, 40px) !important;
-  margin-bottom: 0 !important;
+  margin: 0 !important;
   color: var(--color-rose);
-  font-size: clamp(17px, 1.4vw, 20px);
+  font-size: clamp(18px, 1.5vw, 22px);
   line-height: 1.95;
 }
 
@@ -762,7 +894,7 @@ section {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: clamp(88px, 9vh, 130px) var(--edge-pc);
+  padding: clamp(36px, 4vh, 80px) var(--edge-pc);
   background: var(--color-bg);
   text-align: center;
   overflow: hidden;
@@ -771,44 +903,80 @@ section {
 .final-message-inner {
   position: relative;
   z-index: 1;
-  width: min(760px, 100%);
+  width: min(720px, 100%);
   margin: 0 auto;
 }
 
 .final-message-inner h2 {
-  margin: 0 0 clamp(40px, 4.4vw, 60px);
-  font-size: clamp(26px, 2.4vw, 34px);
+  margin: 0 0 clamp(16px, 1.8vw, 24px);
+  font-size: clamp(22px, 2vw, 30px);
   font-weight: 500;
-  line-height: 1.7;
+  line-height: 1.6;
   letter-spacing: 0.09em;
 }
 
-.final-message-columns {
-  margin-bottom: clamp(28px, 3vw, 40px);
-  text-align: left;
+.final-message-lead {
+  margin: 0 0 clamp(16px, 1.8vw, 24px);
 }
 
-.final-message-columns .content-col p {
-  text-align: left;
+.final-message-lead p {
+  margin: 0 0 10px;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.75;
+}
+
+.final-message-lead p:last-child {
+  margin-bottom: 0;
+}
+
+.final-message-core {
+  margin: clamp(16px, 1.8vw, 24px) 0;
+}
+
+.final-message-divider {
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin: 0 auto clamp(10px, 1.2vw, 16px);
+  background: linear-gradient(90deg, var(--color-rose), var(--color-gold));
+}
+
+.final-message-divider:last-child {
+  margin: clamp(10px, 1.2vw, 16px) auto 0;
 }
 
 .final-message-key {
-  margin: 0 0 clamp(20px, 2.2vw, 28px);
-  font-size: clamp(21px, 1.9vw, 26px);
-  line-height: 1.85;
+  margin: 0 0 clamp(8px, 1vw, 14px);
+  font-size: clamp(19px, 1.6vw, 23px);
+  line-height: 1.6;
 }
 
 .final-message-sub {
-  margin: 0 0 clamp(28px, 3vw, 40px);
-  font-size: clamp(16px, 1.2vw, 18px);
-  line-height: 1.9;
+  margin: 0;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.7;
 }
 
 .final-message-role {
-  margin: 0 0 clamp(36px, 4vw, 52px);
+  margin: clamp(16px, 1.8vw, 24px) 0;
   color: var(--color-rose);
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.3;
   letter-spacing: 0.12em;
+}
+
+.final-message-invite {
+  margin: 0 0 clamp(14px, 1.6vw, 20px);
+}
+
+.final-message-invite p {
+  margin: 0 0 8px;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.75;
+}
+
+.final-message-invite p:last-child {
+  margin-bottom: 0;
 }
 
 .line-cta {
@@ -816,9 +984,9 @@ section {
   align-items: center;
   justify-content: center;
 
-  min-width: 260px;
-  margin-top: 12px;
-  padding: 17px 34px;
+  min-width: 240px;
+  margin-top: 8px;
+  padding: 14px 30px;
 
   border: 1px solid var(--color-rose);
   color: var(--color-text);
@@ -971,8 +1139,12 @@ section {
   }
 
   .about-chichi-inner {
-    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
-    column-gap: 48px;
+    grid-template-columns: minmax(220px, 340px) minmax(0, 1fr);
+    column-gap: 40px;
+  }
+
+  .about-chichi-visual {
+    width: clamp(260px, 34vw, 340px);
   }
 
   .brand-world-copy {
@@ -990,17 +1162,18 @@ section {
 
   :root {
     --edge-pc: 22px;
+    --petal-scale: 0.65;
+    --light-scale: 0.75;
+  }
+
+  .petals > span:nth-child(n + 3) {
+    display: none;
   }
 
   body {
     font-size: 16px;
     line-height: 1.9;
     letter-spacing: 0.045em;
-  }
-
-  .glow,
-  .moon-accent {
-    display: none;
   }
 
   .section-label {
@@ -1193,17 +1366,17 @@ section {
 
   /* ABOUT CHICHI */
 
-  .about-chichi-section {
+  .about-chichi-screen-portrait {
     min-height: 0;
     display: block;
-    padding: 96px 22px 108px;
+    padding: 96px 22px 88px;
   }
 
   .about-chichi-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 36px;
+    gap: 32px;
   }
 
   .about-chichi-meta {
@@ -1219,10 +1392,21 @@ section {
     height: auto;
   }
 
-  .about-chichi-body {
+  .about-chichi-intro {
     order: 3;
     width: 100%;
     max-width: none;
+  }
+
+  .about-chichi-screen-philosophy {
+    min-height: 0;
+    display: block;
+    padding: 88px 22px 100px;
+  }
+
+  .about-chichi-philosophy-inner {
+    width: 100%;
+    padding-left: 18px;
   }
 
   .about-chichi-body {
@@ -1293,17 +1477,13 @@ section {
   }
 
   .final-message-inner h2 {
-    margin-bottom: 46px;
+    margin-bottom: 40px;
     font-size: 27px;
   }
 
-  .final-message-columns {
-    display: block;
-  }
-
-  .final-message-columns .content-col p {
+  .final-message-lead p,
+  .final-message-invite p {
     text-align: center;
-    margin-bottom: 30px;
   }
 
   .final-message-key {
@@ -1365,5 +1545,9 @@ section {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .petals {
+    display: none;
   }
 }
