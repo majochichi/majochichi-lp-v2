@@ -21,8 +21,6 @@
     <!-- FIRST VIEW -->
     <section id="first-view">
 
-      <div class="glow glow-warm" aria-hidden="true"></div>
-
       <div class="first-view-inner">
 
         <div class="first-view-copy">
@@ -69,6 +67,12 @@
 
     <!-- MESSAGE -->
     <section id="message" class="message-section">
+
+      <div class="petals" aria-hidden="true">
+        <span class="light light--a" style="left:7%; top:66%; --w:5px; --h:5px; animation-duration:11s; animation-delay:0s; --drift-1:14px; --drift-2:-10px; --peak-opacity:0.35;"></span>
+        <span class="light light--b" style="left:92%; top:60%; --w:6px; --h:6px; animation-duration:14s; animation-delay:5s; --drift-1:-16px; --drift-2:12px; --peak-opacity:0.4;"></span>
+        <span class="light light--c" style="left:10%; top:73%; --w:4px; --h:4px; animation-duration:9.5s; animation-delay:8s; --drift-1:12px; --drift-2:-14px; --peak-opacity:0.3;"></span>
+      </div>
 
       <div class="message-inner">
 
@@ -126,7 +130,11 @@
       class="soul-translator-section"
     >
 
-      <div class="moon-accent" aria-hidden="true"></div>
+      <div class="petals" aria-hidden="true">
+        <span class="light light--b" style="left:6%; top:58%; --w:5px; --h:5px; animation-duration:12.5s; animation-delay:1s; --drift-1:13px; --drift-2:-11px; --peak-opacity:0.4;"></span>
+        <span class="light light--c" style="left:94%; top:64%; --w:6px; --h:6px; animation-duration:15.5s; animation-delay:6s; --drift-1:-15px; --drift-2:10px; --peak-opacity:0.35;"></span>
+        <span class="light light--a" style="left:50%; top:86%; --w:4px; --h:4px; animation-duration:10s; animation-delay:9s; --drift-1:10px; --drift-2:-13px; --peak-opacity:0.3;"></span>
+      </div>
 
       <div class="section-split">
 
@@ -480,41 +488,43 @@
       class="about-chichi-section"
     >
 
-      <div class="about-chichi-inner">
+      <div class="about-chichi-screen about-chichi-screen-portrait">
 
-        <div class="about-chichi-meta">
+        <div class="about-chichi-inner">
 
-          <p class="section-label">
-            ABOUT CHICHI
-          </p>
+          <div class="about-chichi-meta">
 
-          <h2 class="section-title">
-            魂の翻訳者｜魔女chichi
-          </h2>
+            <p class="section-label">
+              ABOUT CHICHI
+            </p>
 
-        </div>
+            <h2 class="section-title">
+              魂の翻訳者｜魔女chichi
+            </h2>
 
-
-        <div class="about-chichi-visual">
-
-          <div class="about-chichi-portrait">
-            <img
-              src="assets/about-chichi.png"
-              alt="魂の翻訳者｜魔女chichi"
-            >
           </div>
 
-          <img
-            class="about-chichi-frame"
-            src="assets/about-frame.png"
-            alt=""
-            aria-hidden="true"
-          >
 
-        </div>
+          <div class="about-chichi-visual">
+
+            <div class="about-chichi-portrait">
+              <img
+                src="assets/about-chichi.png"
+                alt="魂の翻訳者｜魔女chichi"
+              >
+            </div>
+
+            <img
+              class="about-chichi-frame"
+              src="assets/about-frame.png"
+              alt=""
+              aria-hidden="true"
+            >
+
+          </div>
 
 
-        <div class="about-chichi-body">
+          <div class="about-chichi-body about-chichi-intro">
 
             <p>
               物心ついた頃から、<br>
@@ -527,6 +537,26 @@
               わたしにとって<br>
               自然なことになっていました。
             </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="about-chichi-screen about-chichi-screen-philosophy">
+
+        <div class="petals" aria-hidden="true">
+          <span class="petal petal--a" style="left:16%; top:-6%; --w:13px; --h:17px; animation-duration:14s; animation-delay:0s; --drift-1:28px; --drift-2:-18px; --drift-3:22px; --rot-1:25deg; --rot-2:-15deg; --rot-3:40deg; --peak-opacity:0.5;"><span class="petal-shape"></span></span>
+          <span class="petal petal--b" style="left:78%; top:-9%; --w:19px; --h:24px; animation-duration:21s; animation-delay:6s; --drift-1:-32px; --drift-2:26px; --drift-3:-28px; --rot-1:-30deg; --rot-2:18deg; --rot-3:-50deg; --peak-opacity:0.45;"><span class="petal-shape"></span></span>
+          <span class="petal petal--c" style="left:48%; top:-7%; --w:16px; --h:20px; animation-duration:18s; animation-delay:10s; --drift-1:24px; --drift-2:-20px; --drift-3:26px; --rot-1:20deg; --rot-2:-35deg; --rot-3:55deg; --peak-opacity:0.55;"><span class="petal-shape"></span></span>
+          <span class="petal petal--a" style="left:30%; top:-10%; --w:25px; --h:31px; animation-duration:24s; animation-delay:3s; --drift-1:-40px; --drift-2:30px; --drift-3:-35px; --rot-1:-25deg; --rot-2:20deg; --rot-3:-60deg; --peak-opacity:0.4;"><span class="petal-shape"></span></span>
+        </div>
+
+        <div class="about-chichi-philosophy-inner">
+
+          <div class="about-chichi-body about-chichi-philosophy">
 
             <p>
               人生を歩む中で、<br>
@@ -549,11 +579,13 @@
               人の心と向き合ってきました。
             </p>
 
-            <p class="about-chichi-ending">
-              その歩みが今、<br>
-              「魂の翻訳」という<br>
-              かたちになっています。
-            </p>
+          </div>
+
+          <p class="about-chichi-ending">
+            その歩みが今、<br>
+            「魂の翻訳」という<br>
+            かたちになっています。
+          </p>
 
         </div>
 
@@ -651,7 +683,7 @@
 
           <div class="brand-world-links">
 
-            <a
+            
               href="https://note.com/majochichi"
               target="_blank"
               rel="noopener noreferrer"
@@ -666,7 +698,7 @@
             </a>
 
 
-            <a
+            
               href="https://line.me/S/shop/sticker/author/6569185"
               target="_blank"
               rel="noopener noreferrer"
@@ -695,7 +727,13 @@
       class="final-message-section"
     >
 
-      <div class="glow glow-warm" aria-hidden="true"></div>
+      <div class="petals" aria-hidden="true">
+        <span class="light light--a" style="left:10%; top:70%; --w:6px; --h:6px; animation-duration:10s; animation-delay:0s; --drift-1:15px; --drift-2:-12px; --peak-opacity:0.45;"></span>
+        <span class="light light--c" style="left:90%; top:66%; --w:5px; --h:5px; animation-duration:13s; animation-delay:4s; --drift-1:-14px; --drift-2:11px; --peak-opacity:0.4;"></span>
+        <span class="light light--b" style="left:18%; top:78%; --w:7px; --h:7px; animation-duration:15.5s; animation-delay:8s; --drift-1:16px; --drift-2:-13px; --peak-opacity:0.5;"></span>
+        <span class="light light--a" style="left:82%; top:74%; --w:4px; --h:4px; animation-duration:9s; animation-delay:2s; --drift-1:-11px; --drift-2:14px; --peak-opacity:0.35;"></span>
+        <span class="light light--c" style="left:50%; top:84%; --w:9px; --h:9px; animation-duration:16s; animation-delay:11s; --drift-1:12px; --drift-2:-15px; --peak-opacity:0.4;"></span>
+      </div>
 
       <div class="final-message-inner">
 
@@ -703,67 +741,59 @@
           あなたの中にある光へ。
         </h2>
 
-        <div class="content-columns final-message-columns">
+        <div class="final-message-lead">
 
-          <div class="content-col">
+          <p>
+            心に耳を澄ませ、<br>
+            そこにある想いに気づき、<br>
+            自分の人生を選んでゆく。
+          </p>
 
-            <p>
-              心に耳を澄ませ、<br>
-              そこにある想いに気づき、<br>
-              自分の人生を選んでゆく。
-            </p>
-
-          </div>
-
-          <div class="content-col">
-
-            <p>
-              あなたの光が、<br>
-              あなたの言葉となって、<br>
-              心へ還るように。
-            </p>
-
-          </div>
+          <p>
+            あなたの光が、<br>
+            あなたの言葉となって、<br>
+            心へ還るように。
+          </p>
 
         </div>
 
-        <p class="final-message-key">
-          あなたの中に、<br>
-          眠れる魔法がある。
-        </p>
+        <div class="final-message-core">
 
-        <p class="final-message-sub">
-          その光を、<br>
-          そっと言葉にします。
-        </p>
+          <span class="final-message-divider" aria-hidden="true"></span>
+
+          <p class="final-message-key">
+            あなたの中に、<br>
+            眠れる魔法がある。
+          </p>
+
+          <p class="final-message-sub">
+            その光を、<br>
+            そっと言葉にします。
+          </p>
+
+          <span class="final-message-divider" aria-hidden="true"></span>
+
+        </div>
 
         <p class="final-message-role">
           魂の翻訳者｜魔女chichi
         </p>
 
-        <div class="content-columns final-message-columns">
+        <div class="final-message-invite">
 
-          <div class="content-col">
+          <p>
+            心に浮かんだことを、<br>
+            そのまま聞かせてください。
+          </p>
 
-            <p>
-              心に浮かんだことを、<br>
-              そのまま聞かせてください。
-            </p>
-
-          </div>
-
-          <div class="content-col">
-
-            <p>
-              魂の翻訳は、<br>
-              そこからはじまります。
-            </p>
-
-          </div>
+          <p>
+            魂の翻訳は、<br>
+            そこからはじまります。
+          </p>
 
         </div>
 
-        <a
+        
           class="line-cta"
           href="https://lin.ee/nP7BxKO"
           target="_blank"
@@ -798,7 +828,7 @@
         aria-label="外部リンク"
       >
 
-        <a
+        
           href="https://lin.ee/nP7BxKO"
           target="_blank"
           rel="noopener noreferrer"
@@ -806,7 +836,7 @@
           LINE
         </a>
 
-        <a
+        
           href="https://note.com/majochichi"
           target="_blank"
           rel="noopener noreferrer"
@@ -814,15 +844,15 @@
           note
         </a>
 
-        <a
-          href="https://line.me/S/shop/sticker/author/6569185"
+        
+          href="https://www.threads.com/@majochichi_official?igshid=NTc4MTIwNjQ2YQ=="
           target="_blank"
           rel="noopener noreferrer"
         >
-          LINE ITEMS
+          Threads
         </a>
 
-        <a
+        
           href="https://www.instagram.com/majochichi_official/"
           target="_blank"
           rel="noopener noreferrer"
@@ -830,12 +860,12 @@
           Instagram
         </a>
 
-        <a
-          href="https://www.threads.com/@majochichi_official?igshid=NTc4MTIwNjQ2YQ=="
+        
+          href="https://line.me/S/shop/sticker/author/6569185"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Threads
+          LINE ITEMS
         </a>
 
       </nav>
