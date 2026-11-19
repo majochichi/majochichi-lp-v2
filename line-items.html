@@ -6,36 +6,18 @@
   <meta name="description" content="majochichiのLINE ITEMS。LINEスタンプ・着せかえ・絵文字のご案内。">
   <title>LINE ITEMS｜majochichi</title>
   <style>
-    :root { --pink:#f6eaea; --white:#fffdfd; --ink:#514446; --sub:#78696c; --gold:#b49a71; --line:#e9d9d8; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--pink); color:var(--ink); font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",Georgia,serif; line-height:1.9; }
-    a { color:inherit; }
-    a:focus-visible { outline:2px solid var(--ink); outline-offset:4px; }
-    .wrap { width:min(100% - 40px, 900px); margin-inline:auto; }
-    header { padding:38px 0 16px; text-align:center; }
-    .brand { margin:0; font-family:Georgia,serif; font-size:clamp(1.9rem,5vw,2.8rem); letter-spacing:.16em; }
-    .role { margin:8px 0 0; color:var(--sub); font-size:.88rem; letter-spacing:.08em; }
-    main { padding:70px 0 96px; }
-    .eyebrow { margin:0 0 12px; color:var(--gold); font-family:Georgia,serif; font-size:.8rem; letter-spacing:.25em; }
-    h1 { margin:0; font-family:Georgia,serif; font-size:clamp(2rem,6vw,3.1rem); font-weight:400; letter-spacing:.13em; }
-    .intro { margin:22px auto 0; max-width:34em; color:var(--sub); font-size:1rem; }
-    .heading { text-align:center; margin-bottom:56px; }
-    .items { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
-    .item { background:rgba(255,255,255,.67); border:1px solid var(--line); padding:36px 24px 30px; text-align:center; min-width:0; }
-    .item-icon { display:block; width:40px; height:40px; margin:0 auto 10px; color:var(--gold); }
-    .item-icon svg { display:block; width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
-    h2 { font-size:1.15rem; font-weight:500; letter-spacing:.08em; margin:0 0 14px; }
-    .description { color:var(--sub); font-size:.88rem; margin:0 0 30px; min-height:3.5em; }
-    .item a { display:inline-flex; align-items:center; justify-content:center; min-height:48px; width:100%; padding:10px 12px; border:1px solid var(--gold); border-radius:999px; text-decoration:none; font-size:.88rem; background:var(--white); transition:background .2s ease; }
-    .item a:hover { background:#f9f0ef; }
-    .back { display:block; width:fit-content; min-height:44px; padding:8px 14px; margin:56px auto 0; color:var(--sub); text-underline-offset:5px; font-size:.9rem; }
-    footer { border-top:1px solid var(--line); text-align:center; padding:45px 20px 50px; }
-    .motto { font-family:Georgia,serif; letter-spacing:.13em; margin:0 0 8px; }
-    .values { margin:0 0 28px; color:var(--sub); letter-spacing:.12em; }
-    .copyright { margin:0; color:var(--sub); font-family:Georgia,serif; font-size:.85rem; letter-spacing:.1em; }
-    @media (max-width:720px) { main { padding:50px 0 75px; } .heading { margin-bottom:36px; } .items { grid-template-columns:1fr; gap:16px; max-width:480px; margin-inline:auto; } .item { padding:28px 24px; } .description { min-height:0; margin-bottom:20px; } }
-    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .item a { transition:none; } }
+
+:root{--pink:#fff0f4;--white:#fffdfd;--rose:#b76579;--ink:#88666a;--gold:#c6a46d;--deep:#765259}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--ink);font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",Georgia,serif;line-height:1.8;background:radial-gradient(ellipse at 50% 16%,#fff 2%,#fff8fa 43%,#ffeaf1 100%)}
+body:before,body:after{content:"";position:fixed;top:0;bottom:0;width:min(19vw,270px);background-repeat:no-repeat;background-size:100% 100%;pointer-events:none;z-index:-1}body:before{left:0;background-image:url('roses-left.png')}body:after{right:0;background-image:url('roses-right.png')}
+a{color:inherit}a:focus-visible{outline:3px solid var(--deep);outline-offset:4px}.wrap{width:min(100% - 36px,1180px);margin-inline:auto}
+header{text-align:center;padding:34px 0 0}.brand{font-size:clamp(1.25rem,2.4vw,1.6rem);letter-spacing:.14em;margin:0;color:var(--rose)}.role{font-size:.78rem;letter-spacing:.09em;margin:0;color:var(--ink)}
+main{padding:35px 0 70px}.heading{text-align:center;margin:0 auto 42px}.eyebrow{color:var(--gold);font-family:Georgia,serif;font-size:1rem;letter-spacing:.16em;margin:0 0 7px}.moon{color:var(--gold);font-size:1.65rem;line-height:1.1;margin:0 0 5px}h1{font:400 clamp(2.2rem,5.8vw,4.6rem)/1.25 Georgia,serif;letter-spacing:.13em;color:var(--rose);margin:0}.flourish{color:var(--gold);font-size:1.2rem;letter-spacing:.2em;margin:8px 0 12px}.tagline{font-size:clamp(1.05rem,2.1vw,1.5rem);color:var(--rose);letter-spacing:.08em;margin:0 0 5px}.intro{font-size:clamp(.88rem,1.3vw,1rem);margin:0;color:var(--deep)}
+.items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.item{position:relative;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:340px;padding:53px 24px 26px;border:1px solid var(--gold);border-radius:23px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(255,250,251,.91));box-shadow:0 10px 35px rgba(181,115,133,.10),inset 0 0 0 5px rgba(255,255,255,.8)}.item:before{content:'❀';position:absolute;top:-17px;left:50%;transform:translateX(-50%);color:var(--gold);background:#fff9fb;padding:0 13px;font-size:24px;line-height:1}.item h2{font-size:clamp(1.28rem,2.1vw,1.7rem);font-weight:500;letter-spacing:.03em;color:var(--rose);margin:10px 0 10px}.divider{height:1px;width:65%;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 20px}.description{font-size:.94rem;line-height:1.9;margin:0 auto 25px;max-width:19em;color:var(--deep)}.item a{margin-top:auto;display:flex;align-items:center;justify-content:center;width:100%;min-height:51px;padding:10px 14px;border:1px solid var(--gold);border-radius:999px;text-decoration:none;color:var(--deep);background:linear-gradient(180deg,#fff5f8,#f9dce5);font-size:1rem;box-shadow:0 3px 9px rgba(170,105,115,.1);transition:background .2s,transform .2s}.item a:hover{background:#f9d6e1;transform:translateY(-1px)}.back{display:block;width:fit-content;min-height:44px;margin:42px auto 0;padding:8px 12px;text-underline-offset:6px;color:var(--deep)}footer{text-align:center;padding:25px 20px 40px;border-top:1px solid rgba(198,164,109,.35);background:rgba(255,255,255,.38)}footer p{margin:0}.motto{font-family:Georgia,serif;letter-spacing:.1em;color:var(--gold)}.values{font-size:.88rem;margin:3px 0 15px}.copyright{font: .8rem Georgia,serif}
+@media(max-width:800px){body:before,body:after{opacity:.35;width:18vw}main{padding-top:30px}.items{grid-template-columns:1fr;max-width:480px;margin:auto;gap:26px}.item{min-height:260px;padding:28px 24px 24px}.item h2{margin-top:8px}.description{margin-bottom:22px}.heading{margin-bottom:36px}}
+@media(max-width:420px){body:before,body:after{opacity:.18}.wrap{width:min(100% - 28px,1180px)}h1{letter-spacing:.08em}.intro{font-size:.85rem}.item{padding-inline:19px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.item a{transition:none}}
+
   </style>
 </head>
 <body>
@@ -45,26 +27,29 @@
   </header>
   <main class="wrap">
     <div class="heading">
+      <p class="moon" aria-hidden="true">☾</p>
       <p class="eyebrow">Luz y Amor</p>
       <h1>LINE ITEMS</h1>
-      <p class="intro">暮らしの中に、小さな魔法を。<br>LINEスタンプ・着せかえ・絵文字をご案内します。</p>
+      <p class="flourish" aria-hidden="true">— ❀ —</p>
+      <p class="tagline">暮らしの中に、小さな魔法を。</p>
+      <p class="intro">LINEスタンプ・着せかえ・絵文字をご案内します。</p>
     </div>
     <div class="items">
       <section class="item" aria-labelledby="sticker-title">
-        <span class="item-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M9 10.5h22a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H19l-8 5v-5H9a5 5 0 0 1-5-5v-10a5 5 0 0 1 5-5Z"/></svg></span>
         <h2 id="sticker-title">LINEスタンプ</h2>
+        <div class="divider" aria-hidden="true"></div>
         <p class="description">スタンプの一覧はこちらから。</p>
         <a href="https://line.me/S/shop/sticker/author/6569185" target="_blank" rel="noopener noreferrer" aria-label="LINEスタンプの販売ページを開く（別タブ）">スタンプを見る</a>
       </section>
       <section class="item" aria-labelledby="theme-title">
-        <span class="item-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="4.5" y="6" width="31" height="28" rx="5"/><path d="M23.5 11.5a9 9 0 1 0 6 15.5 9.5 9.5 0 0 1-6-15.5Z"/><path d="M30 12.5v5m-2.5-2.5h5"/></svg></span>
         <h2 id="theme-title">LINE着せかえ</h2>
+        <div class="divider" aria-hidden="true"></div>
         <p class="description">着せかえの一覧はこちらから。</p>
         <a href="https://store.line.me/themeshop/author/12771160" target="_blank" rel="noopener noreferrer" aria-label="LINE着せかえの販売ページを開く（別タブ）">着せかえを見る</a>
       </section>
       <section class="item" aria-labelledby="emoji-title">
-        <span class="item-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 33.5 7.7 21.6C.8 14.9 10.7 4.4 18 11.6l2 2 2-2c7.3-7.2 17.2 3.3 10.3 10Z"/></svg></span>
         <h2 id="emoji-title">LINE絵文字</h2>
+        <div class="divider" aria-hidden="true"></div>
         <p class="description">「リトル魔女chichi 絵文字」の販売ページはこちらから。</p>
         <a href="https://line.me/S/emoji/?id=6abdd8ce9873e30db180cf72" target="_blank" rel="noopener noreferrer" aria-label="LINE絵文字の販売ページを開く（別タブ）">絵文字を見る</a>
       </section>
