@@ -18,6 +18,34 @@ main{padding:35px 0 70px}.heading{text-align:center;margin:0 auto 42px}.eyebrow{
 @media(max-width:420px){body:before,body:after{opacity:.18}.wrap{width:min(100% - 28px,1180px)}h1{letter-spacing:.08em}.intro{font-size:.85rem}.item{padding-inline:19px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.item a{transition:none}}
 
+
+/* PC: viewport-height-aware compact composition; mobile remains scrollable. */
+@media (min-width:801px) {
+  body { min-height:100svh; display:flex; flex-direction:column; }
+  header { padding:clamp(8px,1.6vh,18px) 0 0; }
+  .brand { font-size:clamp(1.1rem,2vh,1.35rem); line-height:1.35; }
+  .role { font-size:.72rem; line-height:1.5; }
+  main { flex:1; display:flex; flex-direction:column; justify-content:center; padding:clamp(8px,1.6vh,18px) 0 clamp(6px,1.2vh,14px); }
+  .heading { margin-bottom:clamp(14px,2.3vh,26px); }
+  .moon { font-size:1.2rem; margin:0; }
+  .eyebrow { font-size:.82rem; margin:0 0 2px; }
+  h1 { font-size:clamp(2.5rem,6.3vh,3.8rem); line-height:1.1; }
+  .flourish { margin:clamp(1px,.6vh,6px) 0; font-size:.95rem; }
+  .tagline { font-size:clamp(1rem,2.5vh,1.28rem); margin:0; line-height:1.6; }
+  .intro { font-size:.87rem; line-height:1.5; }
+  .items { gap:clamp(12px,1.5vw,22px); }
+  .item { min-height:clamp(218px,31vh,275px); padding:clamp(22px,3.5vh,33px) 18px clamp(14px,2vh,20px); }
+  .item:before { top:-12px; font-size:19px; }
+  .item h2 { font-size:clamp(1.22rem,2.6vh,1.52rem); margin:clamp(4px,1vh,10px) 0 8px; }
+  .divider { margin-bottom:clamp(9px,1.5vh,15px); }
+  .description { font-size:.85rem; line-height:1.65; margin-bottom:10px; }
+  .item a { min-height:44px; padding:7px 12px; font-size:.91rem; }
+  .back { margin:clamp(8px,1.8vh,20px) auto 0; min-height:36px; padding:4px 10px; font-size:.88rem; }
+  footer { flex-shrink:0; padding:clamp(7px,1.2vh,13px) 20px clamp(8px,1.3vh,15px); }
+  .motto { font-size:.85rem; }
+  .values { font-size:.75rem; margin:0 0 3px; }
+  .copyright { font-size:.72rem; }
+}
   </style>
 </head>
 <body>
